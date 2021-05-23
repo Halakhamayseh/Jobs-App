@@ -43,7 +43,7 @@ function resultHandler(req, res) {
         let data2 = result.body
         const arr2=data2.map(e=>{new Const(e)})
     })
-    res.render('pages/result.ejs', { keyR:arr2})
+    res.render('pages/result', { keyR:arr2})
 }
 function addHandler(req, res) {
     const title = req.body.title;
@@ -60,7 +60,6 @@ VALUES ('$1', '$2', '$3', '$4', '$5');`;
     
 }
 function mylistHandler(req, res) {
-
     const SQL = `SELECT * FROM job;`;
     client.query(SQL).then(result => {
         res.render('pages/mylist.ejs',{keyM:result.rows})
